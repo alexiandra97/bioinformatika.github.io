@@ -1,0 +1,367 @@
+<html lang="sr">
+<head>
+<title> Bioinformatika </title>
+<link rel="stylesheet" href="styles.css">
+<script type="text/javascript" src="tabovi.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<head/>
+<body>
+	<div class="container">
+		<div class="naslov">
+			<br>
+	 		<center> <h1 style="font-size:5vw;">BIOINFORMATIKA </h1> </center>
+			<br>
+		</div>
+	</div>
+	
+	<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Alati')">ALATI</button>
+  <button class="tablinks" onclick="openTab(event, 'Fajlovi')">FORMATI FAJLOVA</button>
+  <button class="tablinks" onclick="openTab(event, 'Pipelines')">PIPELINES</button>
+  <button class="tablinks" onclick="openTab(event, 'Linux')"> LINUX KOMANDE </button>
+	</div>
+
+
+	<div id="Alati" class="tabcontent">
+	<div id="left">
+		<ul>
+			<li> <a href=""> FASTQC </a> </li>
+			<li> <a href=""> FASTP </a> </li>
+			<li> <a href=""> TRIMMOMATIC </a> </li>
+			<li> <a href=""> CUTADAPT </a> </li>
+			<li> <a href=""> BOWTIE 2 </a> </li>
+			<li> <a href=""> BWA-MEM2 </a> </li>
+			<li> <a href=""> SAMTOOLS </a> </li>
+			<li> <a href=""> SAMBAMBA </a> </li>
+			<li> <a href=""> KALISTO </a> </li>
+			<li> <a href=""> SALMON </a> </li>
+			<li> <a href=""> FISHPOND </a> </li>
+			<li> <a href=""> DESEQ2 </a> </li>
+		</ul>
+	</div>
+	<div id="right">
+	<h2> ALATI </h2>
+	<h3> IGV (ili Jbrowse) </h3>
+	<p> Mogu se koristiti za vizualizaciju poravnatih reads na referentni genom </p>
+	<figure>
+	<img src="./slika2.png" alt="My Image2" style="max-width:100%;height:auto;">
+	<figcaption> tu se moze videti da li je neka varijanta lazno pozitivna ili zaista postoji </figcaption>
+	</figure>
+</div>
+	</div>
+
+
+
+	<!-- Formati fajlova tab -->		
+
+	<div id="Fajlovi" class="tabcontent">
+		
+	<div id="left">
+	<ul>
+	 <li> <a href="#FASTA">FASTA</a>  </li>
+	 <li> <a href="#FASTQ">FASTQ</a>  </li>
+	 <li> <a href="#SAM">SAM</a>   </li>
+	 <li> <a href="#BAM">BAM</a>  </li>
+	 <li> <a href="#VCF">VCF</a>  </li>
+	 <li> <a href="#BED">BED</a>  </li>
+</ul>
+    </div>
+    <div id="right">
+    	<h2> FORMATI FAJLOVA </h2>
+<div id="FASTA">
+	<h3> FASTA </h3>
+	<p> 
+		U bioinformatici FASTA format je tekstualni format nukleotidne ili aminokiselinske sekvence, u kojoj je svaka aminokiselina/nukleotid predstavljena jednim slovom. FASTA format dozvoljava ime sekvence i komentar pre same sekvence (“>…………”). Na početku fajla nalazi se znak veće od “>” praćeni opisom sekvence u jednoj liniji. 
+		<br><br>
+		Npr. 
+		<div class="sekvenca"> >MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken<br>
+MADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID<br>
+FPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA <br>
+DIDGDGQVNYEEFVQMMTAK* </div>
+<br>
+    Literatura: <br><br>
+	<a href="https://en.wikipedia.org/wiki/FASTA_format" target="_blank">https://en.wikipedia.org/wiki/FASTA_format </a>
+
+
+    </p>
+</div>
+
+<div id="FASTQ">
+	<h3> FASTQ </h3>
+	<p>
+		FASTQ format je tekstualni format u kome je sačuvana biološka sekvenca (uglavnom nukleotidna) i njihove odgovarajuće ocene kvaliteta (u ASCII formatu). <br>
+
+		FASTQ format ima 4 odvojena polja po sekvenci:
+		<ol type="1">
+   			<li> Počinje sa “@” , zatim identifikator sekvence i opis sekvence</li>
+   			<li> Slova sekvence</li>
+   			<li> Počinje sa “+” i ponekad se nalazi opis u nastavku</li>
+   			<li> Ocene kvaliteta u ASCII formatu za sekvencu u polju 2 (svaki znak je kvalitet jednog slova sekvence)</li>
+   			</ol>
+		Npr. Ilumina (polje 1)
+		<div class=sekvenca> @HWUSI-EAS100R:6:73:941:1973#0/1 </div>
+		<br>
+		<table>
+			<tr> 
+				<th>HWUSI-EAS100R</th>
+				<td> Jedinstveno ime instrumenta </td>
+			</tr>
+			<tr> 
+				<th>6</th>
+				<td> Flowcell lane </td>
+			</tr>
+			<tr> 
+				<th> 73 </th>
+				<td> Broj pločice u flowcell lane </td>
+			</tr>
+			<tr> 
+				<th> 941 </th>
+				<td> x koordinata klastera na pločici </td>
+			</tr>
+			<tr> 
+				<th> 1973 </th>
+				<td> y koordinata klastera na pločici </td>
+			</tr>
+			<tr> 
+				<th> #0 </th>
+				<td> indeks broj </td>
+			</tr>
+			<tr> 
+				<th> /1 </th>
+				<td> Član para reads (ako je paired end (/1, /2))</td>
+			</tr>
+		</table>
+		<br>
+	Literatura: <br><br>
+ <a href="https://en.wikipedia.org/wiki/FASTQ_format" target="_blank">https://en.wikipedia.org/wiki/FASTQ_format </a>
+	</p>
+</div>
+
+<div id="SAM">
+	<h3> SAM (Sequence aligment map) </h3>
+	<p> SAM je tekstualni format u kome se čuva biološka sekvenca poravnata na referentnu sekvencu. <br>
+SAM format sadrži header i deo sa poravnatom sekvencom. SAM fajlovi mogu biti analizirani i editovani softverom kao što je SAMtools. <br>
+Header se nalazi pre poravnatih nukleotida i sadrži 11 obaveznih kolona:
+<br>
+<br>
+<table>
+	<tr>
+		<th> Polje </th>
+		<th> Tip </th>
+		<th> Opis </th>
+	</tr>
+	<tr>
+		<td> QNAME </td>
+		<td> String </td>
+		<td> Query template NAME</td>
+	</tr>
+	<tr>
+		<td> FLAG </td>
+		<td> Int </td>
+		<td> bitwise FLAGS*</td>
+	</tr>
+	<tr>
+		<td> RNAME </td>
+		<td> String </td>
+		<td> Ime referentne sekvence</td>
+	</tr>
+	<tr>
+		<td> POS </td>
+		<td> Int </td>
+		<td> 1- based leftmost mapping POSSITION</td>
+	</tr>
+	<tr>
+		<td> MAPQ </td>
+		<td> Int </td>
+		<td> MAPping Quality </td>
+	</tr>
+	<tr>
+		<td> CIGAR </td>
+		<td> String </td>
+		<td> CIGAR string</td>
+	</tr>
+	<tr>
+		<td> RNEXT </td>
+		<td> String </td>
+		<td> Ref. name of the mate/next read</td>
+	</tr>
+	<tr>
+		<td> PNEXT </td>
+		<td> Int </td>
+		<td> Position of the mate/next read</td>
+	</tr>
+	<tr>
+		<td> TLEN </td>
+		<td> Int </td>
+		<td> observed Template LENgth</td>
+	</tr>
+	<tr>
+		<td> SEQ </td>
+		<td> String </td>
+		<td> segment SEQuence</td>
+	</tr>
+	<tr>
+		<td> QUAL </td>
+		<td> String </td>
+		<td> Phred-scaled basee Quality+33 </td>
+	</tr>
+</table>
+
+<br>
+Literatura: <br><br>
+<a href="https://en.wikipedia.org/wiki/SAM_(file_format)" target="_blank"> https://en.wikipedia.org/wiki/SAM_(file_format) </a>
+
+</p>
+</div>
+
+<div id="BAM">
+	<h3> BAM (Binary Aligment map) </h3>
+	<p> BAM format je binarni ekvivalent SAM formata, koji sadrži iste podatke kompresovane kao binarni zapis.  </p>
+</div>
+<div id="VCF">
+	<h3> VCF (The Variant call format) </h3>
+	<p> Header: meta-information lines; redovi pocinju sa # i sadrze standardizovan opis tagova i anotacija koje su koriscene u dokumentu; <br> tu se takodje mogu naci podaci o prethodnoj obradi (da bi se stiglo do vcf fajla) i referentonom genomu.<br>
+8 obaveznih kolona sa informacijama:
+<ol>
+	<li>Chromosome (CHROM) </li>
+    <li> pozicija (POS) </li>
+    <li> jedinstvena identifikacija varijante (ID) </li>
+    <li> referentni alel (REF) </li>
+    <li> alternativni nereferentni aleli (ALT) </li>
+    <li> phred-scaled kvalitet (QUAL) </li>
+    <li> mesto filtriranja info (FILTER) </li>
+    <li> dodatne informacije (INFO) </li>
+ </ol>
+FORMAT npr. GT:GQ:DP – genotip, kvalitet genotipa i dubina citanja svakog uzorka
+</p>
+
+</div>
+<div id="BED">
+	<h3> BED (The browser extensible data format) </h3>
+	<p>BED format je tekstualni format koji sadrži genomske regione kao kordinate i povezane anotacije. Podaci su predstavljeni u formi kolona odvojenih razmacima i tabovima. <br>
+Prednost ovog formata je lakša i brža manipualcija podacima pomoću skriptnih jezika. <br>
+BED fajl sadrži najmanje tri kolone, i devet opcionih
+<br>
+<table>
+</table>
+Literatura: <br><br>
+<a href="https://en.wikipedia.org/wiki/BED_(file_format)" target="_blank"> https://en.wikipedia.org/wiki/BED_(file_format) </a> <br>
+<a href="https://www.ensembl.org/info/website/upload/bed.html" target="_blank"> https://www.ensembl.org/info/website/upload/bed.html </a>
+
+ </p> 
+</div>
+</div>
+</div>
+<div id="Pipelines" class="tabcontent">
+	<div id="left">
+		<ul>
+			<li> <a href=""> Proces bioinformatičke analize </a> </li>
+			<li> <a href=""> WGS </a> </li>
+			<li> <a href=""> WES </a> </li>
+			<li> <a href=""> RNASEQ</a> </li>
+		</ul>
+	</div>
+	<div id ="right">
+	<h2> PIPELINES </h2>
+	<h3> Proces bioinformaticke analize</h3>
+		<h4> Primarna analiza </h4>
+		<h4> Sekundarna analiza </h4>
+		<h4> Tercijarna analiza </h4>
+	<figure>
+	<img src="./slika1.png" alt="My Image" style="max-width:100%;height:auto;">
+	<figcaption> plavo:primarna, narandzasto:sekundarna, zeleno: tercijarna analiza </figcaption>
+	</figure>
+</div>
+</div>
+<div id="Linux" class="tabcontent">
+	<div class="lol">
+	<h2> Linux komande </h2>
+	<br>
+	<input placeholder="type command" type="text" id="search">
+	<input type="button" value="search" onclick="search(document.getElementById('search').value)">
+	<br>
+	<br>
+	<pre>
+		<b> cd </b> - change directories (ući u sledeći direktorijum (folder))
+		<b> ls </b> - list their contents
+		<b> pwd </b> - print working directory
+		<b> mkdir /x/y </b> - make directory y in x
+		<b> mkdir fordername{1..10} </b> - make 10 folders named foldername1,foldername2...
+		<b> -p (option, switch) </b> - in this case "parent"
+		<b> ls > output.txt </b> - čuva se output komande ls
+		<b> ls -a </b> - list all(and hider folders)
+		   <b> -l </b> - more info about folders/files
+		   <b> -lt </b> - sort by time
+		   <b> -lSh </b> - sort reverse by size
+		<b> cat file </b> - look at file content
+		<b> cat file1 file2 file3 > text1.txt </b> - concatenate files in file text1.txt
+		<b> cat te* > new_file </b> - concatenate files start with "te" in new_file (in current directory)
+		<b> echo "sth" > text1.txt </b> - add content in file
+		<b> less file </b> - viewing a file and move through a file (q - when you want to return to a command line)
+		<b> mv filename foldername </b> - move file in folder
+		<b> mv folder/* . </b> - move in current folder
+		<b> mv file1 file2 </b> - rename file 
+		<b> cp file dir4 </b> - copy file in dir4
+				<b> -v </b> - show process
+				<b> -u </b> - copy in update mode
+		<b> rm filename </b> - delete file
+		<b> rmdir foldername </b> - remove empty directory
+		<b> wc </b> - word count
+		      <b> -l filename </b> - line count
+		<b> uniq </b> - unique lines
+			eg. cat text | uniq | wc -l
+		<b> man command </b> - inspect command
+		<b> sort text </b> - sort lines
+		<b> su </b> - switch user
+		<b> sudo </b> - switch user and do this command
+		<b> sudo apt -get </b> - install new system
+		<b>  echo "sth" >> file.txt </b> - dodavanje teksta u postojeći fajl 
+		<b> | </b> - pipe between command
+			eg. ls ~ | wc -l
+		<b> ~ </b> - from home directory
+		<b> / </b> - from root directory
+		<b> press tab </b> - autocompletion
+		<b> wildcards </b>
+			<b> * </b> - više karaktera
+			<b> ? </b> - jedan karakter
+			<b> [] </b> - 
+		<b> date </b> - datum
+		<b> cal </b> - calendar
+			<b> -y </b> - za celu godinu kalendar
+		<b> history </b> - šta smo prethodno otkucali u komandnu liniju
+		<b> clear </b> - čišćenje terminala
+		<b> find filename </b> - find a file
+		<b> locate filename </b> - find a file
+		<b> head -n 5 filename </b> - first 5 lines of file
+		<b> tail filename </b> - last 10 lines of file
+		<b> touch filename </b> - create file
+		<b> nano filename </b> - edit file
+		<b> grep " " filename </b> - all lines with " "
+			<b> ^tekst filename </b> - red počinje sa "tekst"
+			<b> tekst$ filename </b> - red se završava sa "tekst"
+			<b> -c filename1 filename2 <b> - broji redove koji se podudaraju
+			<b> -v "sth" filename </b> - isključuje "sth" 
+		<b> ps -ef </b> - view all running process
+		<b> kill </b> - close sth
+		<b> ifconfig </b> - check network info
+		<b> ping </b> - alive?
+		<b> wget URL </b> - download a file from internet
+
+		<br>
+		<br>
+		<h3> Editori </h3>
+		<h4> AWK </h4>
+		<h4> SED </h4>
+
+
+
+
+
+
+
+
+	</pre>
+</div>
+</div>
+<body/>
+</html>
